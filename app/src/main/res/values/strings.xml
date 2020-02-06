@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">PassMan</string>
+    <string name="action_settings">Settings</string>
+    <string name="search">Search passwords</string>
+    <string name="passman">PassMan</string>
+    <string name="username_icon">Username icon</string>
+    <string name="options">Options</string>
+    <string name="password_icon">Password icon</string>
+    <string name="delete">Delete</string>
+    <string name="pin">Pin</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="clear_search">clear search</string>
+    <string name="copy_password">Copy password</string>
+    <string name="favorite">Favorite</string>
+    <string name="unfavorite">Unfavorite</string>
+    <string name="lock_title">Lock screen</string>
+    <string name="lock_body">You must have a lock screen password in order to use this app</string>
+    <string name="lock_settings">Settings</string>
+    <string name="lock_exit">Exit</string>
+    <string name="service_nickname_e_g_facebook">Service/nickname (e.g. Facebook)</string>
+    <string name="pass_man">PASS MAN</string>
+    <string name="save">Save</string>
+    <string name="add_a_password">NEW PASSWORD</string>
+    <string name="edit">Edit</string>
+</resources>

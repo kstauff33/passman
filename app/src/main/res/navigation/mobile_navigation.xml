@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/password_list_fragment">
+
+    <fragment
+        android:id="@+id/password_list_fragment"
+        android:name="life.kylestauffer.passman.ui.passwordlist.PasswordListFragment"
+        android:label="Passwords"
+        tools:layout="@layout/password_list_fragment" >
+        <action
+            android:id="@+id/add_edit_password"
+            app:destination="@id/add_password_fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_password_fragment"
+        android:name="life.kylestauffer.passman.ui.addpassword.AddPasswordFragment"
+        android:label="Add a password"
+        tools:layout="@layout/add_password_fragment" >
+        <argument
+            android:name="passwordId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+</navigation>

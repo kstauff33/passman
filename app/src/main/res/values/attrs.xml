@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="customAttrs">
+        <attr name="likeIcon" format="reference" />
+        <attr name="unlikeIcon" format="reference" />
+        <attr name="copyIcon" format="reference" />
+        <attr name="showIcon" format="reference" />
+        <attr name="lockIcon" format="reference" />
+        <attr name="personIcon" format="reference" />
+        <attr name="menuIcon" format="reference" />
+        <attr name="serviceIcon" format="reference" />
+    </declare-styleable>
+</resources>
