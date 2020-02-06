@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TitleRow extends RecyclerView.ViewHolder {
-	public TitleRow(@NonNull View itemView) {
-		super(itemView);
-	}
+    public TitleRow(@NonNull View itemView) {
+        super(itemView);
+    }
 }

@@ -23,10 +23,10 @@ import javax.crypto.spec.IvParameterSpec;
 
 public class EncryptionUtils {
 
-	private static final String TAG = EncryptionUtils.class.getSimpleName();
+    private static final String TAG = EncryptionUtils.class.getSimpleName();
 
-	//	private static final String PUBLIC_KEY = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3TlVZa0MxMlMvVWg5OHp3UVJhZAprakQxMmZ1NS84M0k5a3JyWlNOSU9BUFNvenFWWVJPdmNnS1U4WURhV1NXN3VSZ1YrVkpZWEV3elg3eTgrR2xPCnVWTCtpYXd2WC9waTlxL3g1V1Z3SUt4VXFNT3U2azBLdVZWK3N1dVBTVVlsVU9qbTdwTFJvcTdUejN0UG90dk8KcjRYZm9JVjRZUUZwazJjeGN5S2V4REpsSit1eHhYQlQzVFY5Y2dGRlBIYkd2U0JtQzg4dzBnUnZFdml3dklrYgowVGFaQXhLVFBlZ0F3dm1QUnlhTDRhVTNQUld4N0RRVENqRnU1QjBOWmVMWHB3SVgrd2JEYjFWenBUTk9Db244CkhTYk5xUXZ5R2pHYnRvOXhSRDB4NVdFbWhrUjQ0M2tpM1d2SG5vRXlmZ0VUdExGcTVUMjlMVVl1dkN4cmxQK28KT3dJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==";
-	private static final String PUBLIC_KEY = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEwRXYydzhQLzNaZ09vWmZEVmhsVgpWSStFd09tM0M5OFd6dGkzd1pnbmY3aWsxRGp4MVNSQVBYM1NQb001WWZUT1RNQytpdXdXUzZOR2o3MHU1aXd4CmNuY0FDY05hekE5dCtvZ0xleE5XcDdpWTd6QVd3OERVMm1GQm02VjBhMUh1cC9RZzBJdUQ0K0JPaXpJSVA3Z1kKeTJGOFVFYlErTnArMmJhSmZYdjhnTmtYaU1JU0xoMzVxRk03dnFwU1BFRTVncXVhaVRvY21lMFd6c1hDWU1mbgpNUlIydkdpMG96d2ZZNjFlU016SXFyNHVMWlVreFM5V3U5aytsQXJSTG5adTlOM0pETGRONUNHSWduZTZWL0hOCkx4N2c5OEovNDY4RldndWhjQWsvYVdGNmdLRlBkL0ViTDVqTmNzL3pLUTliWWhxZEQwMENweGh4TWtQemlpYUkKUHdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==";
+    //	private static final String PUBLIC_KEY = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3TlVZa0MxMlMvVWg5OHp3UVJhZAprakQxMmZ1NS84M0k5a3JyWlNOSU9BUFNvenFWWVJPdmNnS1U4WURhV1NXN3VSZ1YrVkpZWEV3elg3eTgrR2xPCnVWTCtpYXd2WC9waTlxL3g1V1Z3SUt4VXFNT3U2azBLdVZWK3N1dVBTVVlsVU9qbTdwTFJvcTdUejN0UG90dk8KcjRYZm9JVjRZUUZwazJjeGN5S2V4REpsSit1eHhYQlQzVFY5Y2dGRlBIYkd2U0JtQzg4dzBnUnZFdml3dklrYgowVGFaQXhLVFBlZ0F3dm1QUnlhTDRhVTNQUld4N0RRVENqRnU1QjBOWmVMWHB3SVgrd2JEYjFWenBUTk9Db244CkhTYk5xUXZ5R2pHYnRvOXhSRDB4NVdFbWhrUjQ0M2tpM1d2SG5vRXlmZ0VUdExGcTVUMjlMVVl1dkN4cmxQK28KT3dJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==";
+    private static final String PUBLIC_KEY = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEwRXYydzhQLzNaZ09vWmZEVmhsVgpWSStFd09tM0M5OFd6dGkzd1pnbmY3aWsxRGp4MVNSQVBYM1NQb001WWZUT1RNQytpdXdXUzZOR2o3MHU1aXd4CmNuY0FDY05hekE5dCtvZ0xleE5XcDdpWTd6QVd3OERVMm1GQm02VjBhMUh1cC9RZzBJdUQ0K0JPaXpJSVA3Z1kKeTJGOFVFYlErTnArMmJhSmZYdjhnTmtYaU1JU0xoMzVxRk03dnFwU1BFRTVncXVhaVRvY21lMFd6c1hDWU1mbgpNUlIydkdpMG96d2ZZNjFlU016SXFyNHVMWlVreFM5V3U5aytsQXJSTG5adTlOM0pETGRONUNHSWduZTZWL0hOCkx4N2c5OEovNDY4RldndWhjQWsvYVdGNmdLRlBkL0ViTDVqTmNzL3pLUTliWWhxZEQwMENweGh4TWtQemlpYUkKUHdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==";
 //	private static final String PUBLIC_KEY = "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpQcm9jLVR5c"
 //			+ "GU6IDQsRU5DUllQVEVECkRFSy1JbmZvOiBBRVMtMjU2LUNCQyxCMUFFNDZEN0E2NjUwOEU5OUM0MTNBQ0Q5QTUwRT"
 //			+ "A3QQoKMXUwSVB2TGhwRHJ3YUE5cmVlaHlZQ0tQbHNTSjFJVVg1bTVzcVQyMzJRT1ZaRTgxZXBiUU9JUnVtMDhsZ2Z"
@@ -56,125 +56,125 @@ public class EncryptionUtils {
 //			+ "VlTFoxTmF4a3VwQmU2VFZKRwotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=";
 
 
-	private static final String PASS_MAN = "PASS_MAN";
+    private static final String PASS_MAN = "PASS_MAN";
 
-	public static EncryptedPayload encryptWithLocalKey(@NonNull String raw) throws EncryptionException {
-		try {
-			final Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
-			cipher.init(Cipher.ENCRYPT_MODE, getSecretKey());
-			byte[] iv = cipher.getIV();
-			byte[] bytes = cipher.doFinal(raw.getBytes(StandardCharsets.UTF_8));
-			String encrypted = Base64.encodeToString(bytes, Base64.DEFAULT);
-			return new EncryptedPayload(encrypted, Base64.encodeToString(iv, Base64.DEFAULT));
-		} catch (Exception e) {
-			Log.e(TAG, "Local key encryption failed", e);
-			throw new EncryptionException();
-		}
-	}
+    public static EncryptedPayload encryptWithLocalKey(@NonNull String raw) throws EncryptionException {
+        try {
+            final Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, getSecretKey());
+            byte[] iv = cipher.getIV();
+            byte[] bytes = cipher.doFinal(raw.getBytes(StandardCharsets.UTF_8));
+            String encrypted = Base64.encodeToString(bytes, Base64.DEFAULT);
+            return new EncryptedPayload(encrypted, Base64.encodeToString(iv, Base64.DEFAULT));
+        } catch (Exception e) {
+            Log.e(TAG, "Local key encryption failed", e);
+            throw new EncryptionException();
+        }
+    }
 
-	public static String decryptWithLocalKey(@NonNull String raw, @NonNull String iv) throws EncryptionException {
-		byte[] plaintext = Base64.decode(raw, Base64.DEFAULT);
-		try {
-			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
-			cipher.init(Cipher.DECRYPT_MODE, getSecretKey(), new IvParameterSpec(Base64.decode(iv, Base64.DEFAULT)));
-			byte[] cipherText = cipher.doFinal(plaintext);
-			return new String(cipherText);
-		} catch (Exception e) {
-			Log.e(TAG, "Local key decryption failed", e);
-			throw new EncryptionException();
-		}
-	}
+    public static String decryptWithLocalKey(@NonNull String raw, @NonNull String iv) throws EncryptionException {
+        byte[] plaintext = Base64.decode(raw, Base64.DEFAULT);
+        try {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+            cipher.init(Cipher.DECRYPT_MODE, getSecretKey(), new IvParameterSpec(Base64.decode(iv, Base64.DEFAULT)));
+            byte[] cipherText = cipher.doFinal(plaintext);
+            return new String(cipherText);
+        } catch (Exception e) {
+            Log.e(TAG, "Local key decryption failed", e);
+            throw new EncryptionException();
+        }
+    }
 
-	public static String encryptWithRemoteKey(@NonNull String raw) throws EncryptionException {
-		byte[] plaintext = raw.getBytes();
-		try {
-			PublicKey key = getKey();
-			Cipher cipher = Cipher.getInstance("RSA");
-			cipher.init(Cipher.ENCRYPT_MODE, key);
-			byte[] cipherText = cipher.doFinal(plaintext);
-			byte[] iv = cipher.getIV();
-			return new String(cipherText);
-		} catch (Exception e) {
-			Log.e(TAG, "Remote key encryption failed", e);
-			throw new EncryptionException();
-		}
-	}
+    public static String encryptWithRemoteKey(@NonNull String raw) throws EncryptionException {
+        byte[] plaintext = raw.getBytes();
+        try {
+            PublicKey key = getKey();
+            Cipher cipher = Cipher.getInstance("RSA");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] cipherText = cipher.doFinal(plaintext);
+            byte[] iv = cipher.getIV();
+            return new String(cipherText);
+        } catch (Exception e) {
+            Log.e(TAG, "Remote key encryption failed", e);
+            throw new EncryptionException();
+        }
+    }
 
-	public static PublicKey getKey() throws InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException {
-		byte[] encodedKey = Base64.decode(PUBLIC_KEY, Base64.DEFAULT);
-		X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(encodedKey);
-		KeyFactory kf = KeyFactory.getInstance("X.509", "BC");
-		return kf.generatePublic(X509publicKey);
-	}
+    public static PublicKey getKey() throws InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException {
+        byte[] encodedKey = Base64.decode(PUBLIC_KEY, Base64.DEFAULT);
+        X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(encodedKey);
+        KeyFactory kf = KeyFactory.getInstance("X.509", "BC");
+        return kf.generatePublic(X509publicKey);
+    }
 
-	private static Key getSecretKey() throws EncryptionException {
-		try {
-			KeyStore androidKeyStore = KeyStore.getInstance("AndroidKeyStore");
-			androidKeyStore.load(null);
-			Key key = androidKeyStore.getKey(PASS_MAN, null);
-			if (key != null) {
-				androidKeyStore.setKeyEntry(PASS_MAN, key, null, null);
-				return key;
-			}
-		} catch (Exception e) {
-			Log.e(TAG, "Failed to retrieve from keystore", e);
-		}
+    private static Key getSecretKey() throws EncryptionException {
+        try {
+            KeyStore androidKeyStore = KeyStore.getInstance("AndroidKeyStore");
+            androidKeyStore.load(null);
+            Key key = androidKeyStore.getKey(PASS_MAN, null);
+            if (key != null) {
+                androidKeyStore.setKeyEntry(PASS_MAN, key, null, null);
+                return key;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to retrieve from keystore", e);
+        }
 
-		final KeyGenerator keyGenerator;
-		try {
-			keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-			final KeyGenParameterSpec keyGenParameterSpec = new KeyGenParameterSpec.Builder(PASS_MAN,
-					KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
-					.setKeySize(256)
-					.setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-					.setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-					.setRandomizedEncryptionRequired(true)
+        final KeyGenerator keyGenerator;
+        try {
+            keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
+            final KeyGenParameterSpec keyGenParameterSpec = new KeyGenParameterSpec.Builder(PASS_MAN,
+                    KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+                    .setKeySize(256)
+                    .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+                    .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+                    .setRandomizedEncryptionRequired(true)
 //					.setUserAuthenticationRequired(true)
 //					.setUserAuthenticationValidityDurationSeconds(5 * 60)
-					.build();
+                    .build();
 
-			keyGenerator.init(keyGenParameterSpec);
-			return keyGenerator.generateKey();
-		} catch (Exception e) {
-			Log.e(TAG, "Failed to get secret key", e);
-			throw new EncryptionException("Failed to create key", e);
-		}
-	}
+            keyGenerator.init(keyGenParameterSpec);
+            return keyGenerator.generateKey();
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to get secret key", e);
+            throw new EncryptionException("Failed to create key", e);
+        }
+    }
 
-	public static class EncryptionException extends Exception {
-		public EncryptionException() {
-			super();
-		}
+    public static class EncryptionException extends Exception {
+        public EncryptionException() {
+            super();
+        }
 
-		public EncryptionException(String message) {
-			super(message);
-		}
+        public EncryptionException(String message) {
+            super(message);
+        }
 
-		public EncryptionException(String message, Throwable cause) {
-			super(message, cause);
-		}
+        public EncryptionException(String message, Throwable cause) {
+            super(message, cause);
+        }
 
-	}
+    }
 
-	public static class EncryptedPayload {
-		private final String encrypted;
+    public static class EncryptedPayload {
+        private final String encrypted;
 
-		private final String iv;
+        private final String iv;
 
-		public EncryptedPayload(String encrypted, String iv) {
-			this.encrypted = encrypted;
-			this.iv = iv;
-		}
+        public EncryptedPayload(String encrypted, String iv) {
+            this.encrypted = encrypted;
+            this.iv = iv;
+        }
 
-		public String getIv() {
-			return iv;
-		}
+        public String getIv() {
+            return iv;
+        }
 
-		public String getEncrypted() {
-			return encrypted;
-		}
+        public String getEncrypted() {
+            return encrypted;
+        }
 
-	}
+    }
 
 
 }

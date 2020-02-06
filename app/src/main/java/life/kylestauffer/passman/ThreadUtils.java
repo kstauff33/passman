@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 
 public class ThreadUtils {
 
-	public static void runOffUiThread(@NonNull Runnable runnable) {
-		HandlerThread handlerThread = new HandlerThread("handler thread");
-		handlerThread.start();
-		new Handler(handlerThread.getLooper()).post(runnable);
-	}
+    public static void runOffUiThread(@NonNull Runnable runnable) {
+        HandlerThread handlerThread = new HandlerThread("handler thread");
+        handlerThread.start();
+        new Handler(handlerThread.getLooper()).post(runnable);
+    }
 
-	public static void postOnUiThread(@NonNull Runnable runnable) {
-		new Handler(Looper.getMainLooper()).post(runnable);
-	}
+    public static void postOnUiThread(@NonNull Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
 }

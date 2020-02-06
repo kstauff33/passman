@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SpacerRow extends RecyclerView.ViewHolder {
-	public SpacerRow(@NonNull View itemView) {
-		super(itemView);
-	}
+    public SpacerRow(@NonNull View itemView) {
+        super(itemView);
+    }
 }
